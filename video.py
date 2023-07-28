@@ -2,10 +2,12 @@
 
 import cv2
 filename= input("What do you want to save the file as?: ")
-cap= cv2.VideoCapture(0)
+cap= cv2.VideoCapture(0) #The "0" here means first webcam/camera. If you have an external webcam, try changing the number to "1" or "2"!
+
 width= int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 height= int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 writer= cv2.VideoWriter(filename+'.mp4', cv2.VideoWriter_fourcc(*'DIVX'), 20, (width,height))
+
 while True:
     ret,frame= cap.read()
     writer.write(frame)
